@@ -1,0 +1,17 @@
+jobs:
+  - name: "job-1"
+    type: runSh
+    steps:
+      - TASK:
+          script:
+            - echo "Hello, world!"
+            - foobar
+  - name: "job-2"
+    type: runSh
+    steps:
+      - IN: "job-1"
+        triggerOnFailure: true
+        triggerOnSuccess: true
+      - TASK:
+          script:
+            - echo "Hello, world!"
